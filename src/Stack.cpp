@@ -82,6 +82,7 @@ int stack(char * clear){
 			cout<<"3. traverse \n";
 			cout<<"4. peek \n";
 			cout<<"10. stop \n";
+			cout<<"Enter your choice \n";
 			int choice;
 			int stop=0;
 			cin>>choice;

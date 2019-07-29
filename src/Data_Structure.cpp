@@ -25,7 +25,9 @@ int main() {
 		cout<<"1. Stack \n";
 		cout<<"2. Dynamic Stack \n";
 		cout<<"3. Single Linked List \n";
+		cout<<"4. Queue \n";
 		cout<<"10. Stop \n";
+		cout<<"Enter your choice \n";
 		 stop=0;
 		cin>>choice;
 		switch(choice){
@@ -35,6 +37,9 @@ int main() {
 				break;
 		case 3 : linkedList(clear);
 				break;
+		case 4: queue(clear);
+			break;
+
 		case 10 :
 			stop=1;
 			break;

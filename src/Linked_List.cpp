@@ -230,6 +230,7 @@ int linkedList(char * clear){
 			cout<<"8. Reverse \n";
 			cout<<"9. Sort \n";
 			cout<<"10. stop \n";
+			cout<<"Enter your choice \n";
 			int choice;
 			int stop=0;
 			cin>>choice;

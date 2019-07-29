@@ -10,7 +10,7 @@
 int stack(char * clear);
 int dynamicStack(char * clear);
 int linkedList(char * clear);
-
+int queue(char *clear);
 
 
 #endif /* HEADERFILE_H_ */
