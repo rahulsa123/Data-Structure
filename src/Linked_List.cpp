@@ -255,7 +255,8 @@ int linkedList(char * clear){
 					break;
 			case 10 :stop=1;
 					break;
-			default : cout<<" Enter valid choice\n";
+			default : cout<<" Enter valid choice(press Enter)\n";
+		getchar();getchar();
 					break;
 			}
 			if(stop){
