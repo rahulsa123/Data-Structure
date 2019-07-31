@@ -30,7 +30,6 @@ int main() {
 		cout<<"4. Queue \n";
 		cout<<"5. Double Linked List \n";
 		cout<<"6. Binary Search Tree \n";
-		cout<<"7. AVL Tree\n";
 		cout<<"10. Stop \n";
 		cout<<"Enter your choice \n";
 		 stop=0;
