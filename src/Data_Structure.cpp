@@ -23,13 +23,14 @@ int main() {
 		clear="cls";
 	while(1){
 		system(clear);
+		cout<<"-*--*--*--*-Welcome in Data Structure-*--*--*--*-\n";
 		cout<<"1. Stack \n";
 		cout<<"2. Dynamic Stack \n";
 		cout<<"3. Single Linked List \n";
 		cout<<"4. Queue \n";
-
 		cout<<"5. Double Linked List \n";
 		cout<<"6. Binary Search Tree \n";
+		cout<<"7. AVL Tree\n";
 		cout<<"10. Stop \n";
 		cout<<"Enter your choice \n";
 		 stop=0;
@@ -47,6 +48,7 @@ int main() {
 				break;
 		case 6: binary_search_tree(clear);
 				break;
+
 		case 10 :
 			stop=1;
 			break;

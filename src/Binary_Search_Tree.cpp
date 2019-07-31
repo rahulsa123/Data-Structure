@@ -51,7 +51,7 @@ int bst_insert(){
 }
 int bst_delete(){
 	if(bst_isEmpty())
-		cout<<"first enter some element";
+		cout<<"first enter some element\n";
 	else{
 		int data;
 		cout<<"Enter Data you want to delete ";
@@ -111,16 +111,64 @@ int bst_delete(){
 		}
 	// case 3 having 2 children
 		else if(curr->left!=NULL && curr->right!=NULL){
-
-
-
-
-
+			// here we replace node with it in order successor
+			Node *r1= curr->right;
+			// first it's right node having no children
+			if(r1->left==NULL && r1->right==NULL){
+				curr->data=r1->data;
+				curr->right=NULL;
+				free(r1);
+			}
+			// right node having no left child
+			else if(r1->left==NULL && r1->right!=NULL){
+				curr->data=r1->data;
+				curr->right=r1->right;
+				r1->right=NULL;
+				free(r1);
+			}
+			//right node having left child
+			else{
+				Node *r2=r1->left;
+				while(r2->left!=NULL){
+					r2=r2->left;
+					r1=r1->left;
+				}
+				curr->data=r2->data;
+				r1->left=r2->right;
+				r2->right=NULL;
+				free(r2);
+			}
+		}
+		cout<<"Data is Deleted\n";
 		}
 	}
 	enter;
 	return 1;
-	}
+}
+int bst_in_traversal(Node *root){
+	if(root==NULL)
+		return 0;
+	bst_in_traversal(root->left);
+	cout<<root->data<<" ";
+	bst_in_traversal(root->right);
+	return 0;
+}
+int bst_pre_traversal(Node *root){
+	if(root==NULL)
+		return 0;
+	cout<<root->data<<" ";
+	bst_pre_traversal(root->left);
+	bst_pre_traversal(root->right);
+	return 0;
+}
+int bst_post_traversal(Node *root){
+	if(root==NULL)
+		return 0;
+
+	bst_post_traversal(root->left);
+	bst_post_traversal(root->right);
+	cout<<root->data<<" ";
+	return 0;
 }
 int binary_search_tree(char * clear){
 	while(1){
@@ -128,13 +176,9 @@ int binary_search_tree(char * clear){
 				cout<<"-*--*--*--*-Welcome in Binary Search Tree-*--*--*--*-\n";
 				cout<<"1. Insert \n";
 				cout<<"2. Delete \n";
-				cout<<"3. Traverse \n";
-//				cout<<"4. Add after \n";
-//				cout<<"5. Add at begin \n";
-//				cout<<"6. Display \n";
-//				cout<<"7. Swap \n";
-//				cout<<"8. Reverse \n";
-//				cout<<"9. Sort \n";
+				cout<<"3. In order Traversal \n";
+				cout<<"4. Pre order Traversal \n";
+				cout<<"5. Post order Traversal \n";
 				cout<<"10. stop \n";
 				cout<<"Enter your choice \n";
 				int choice;
@@ -145,20 +189,21 @@ int binary_search_tree(char * clear){
 						break;
 				case 2 :bst_delete();
 						break;
-//				case 3 :bst_traverse();
-//						break;
-//				case 4 :linkedList_add_after();
-//						break;
-//				case 5 :linkedList_add_at_begin();
-//						break;
-//				case 6 :linkedList_display();
-//						break;
-//				case 7 :linkedList_swap();
-//						break;
-//				case 8 :linkedList_reverse();
-//						break;
-//				case 9 :linkedList_sort();
-//						break;
+				case 3 : cout<<"Data in in order traversal \n";
+						bst_in_traversal(BST_ROOT);
+						cout<<endl;
+						enter;
+						break;
+				case 4 :cout<<"Data in pre order traversal \n";
+					bst_pre_traversal(BST_ROOT);
+					cout<<endl;
+					enter;
+						break;
+				case 5 :cout<<"Data in in order traversal \n";
+					bst_post_traversal(BST_ROOT);
+					cout<<endl;
+					enter;
+						break;
 				case 10 :stop=1;
 						break;
 				default : cout<<" Enter valid choice(press Enter)\n";
